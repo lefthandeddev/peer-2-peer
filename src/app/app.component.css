@@ -1,5 +1,18 @@
-main {
+fast-design-system-provider {
   padding: 20px;
+}
+
+section {
   display: flex;
   flex-direction: column;
+  width: 230px;
+}
+
+fast-button {
+  margin: 5px;
+  width: fit-content;
+}
+
+fast-text-field {
+  margin: 5px;
 }

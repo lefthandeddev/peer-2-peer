@@ -1,17 +1,31 @@
-<main>
-  <mat-form-field>
-    <mat-label>Their peer id</mat-label>
-    <input matInput type="text" [(ngModel)]="theirId" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="connect()">Connect</button>
+<fast-design-system-provider use-defaults design-unit="6">
+  <section>
+    <fast-text-field
+      appearance="filled"
+      placeholder=""
+      [(ngModel)]="theirId"
+      ngDefaultControl
+    >
+      Their peer id
+    </fast-text-field>
+    <fast-button appearance="accent" (click)="connect()">
+      Connect
+    </fast-button>
 
-  <p>Yours: {{ myId }}</p>
-  <p>Theirs: {{ _theirId }}</p>
+    <p>Yours: {{ myId }}</p>
+    <p>Theirs: {{ _theirId }}</p>
 
-  <mat-form-field>
-    <mat-label>Message</mat-label>
-    <input matInput type="text" [(ngModel)]="message" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="send()">Send</button>
-  <p *ngFor="let datum of data">{{ datum }}</p>
-</main>
+    <fast-text-field
+      appearance="filled"
+      placeholder=""
+      [(ngModel)]="message"
+      ngDefaultControl
+    >
+      Message
+    </fast-text-field>
+    <fast-button appearance="accent" (click)="send()">
+      Send
+    </fast-button>
+    <p *ngFor="let datum of data">{{ datum }}</p>
+  </section>
+</fast-design-system-provider>
