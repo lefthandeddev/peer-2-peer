@@ -20,7 +20,7 @@ export class AppComponent {
       this.theirId = id;
     });
     this.peerService.peerEvents.data.subscribe((data) => {
-      this.data.push(data);
+      this.data.push(`them: ${data}`);
     });
   }
 
@@ -30,6 +30,7 @@ export class AppComponent {
 
   send() {
     this.peerService.send(this.message);
+    this.data.push(`me: ${this.message}`);
     this.message = '';
   }
 }
