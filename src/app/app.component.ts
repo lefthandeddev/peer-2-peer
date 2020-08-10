@@ -9,12 +9,16 @@ import { PeerService } from './services/peer/peer.service';
 export class AppComponent {
   myId: string = '';
   theirId: string = '';
+  _theirId = '';
   data: string[] = [];
   message: string = '';
 
   constructor(private peerService: PeerService) {
     peerService.peerEvents.open.subscribe((id) => (this.myId = id));
-    peerService.peerEvents.connection.subscribe((id) => (this.theirId = id));
+    peerService.peerEvents.connection.subscribe((id) => {
+      this._theirId = id;
+      this.theirId = id;
+    });
     this.peerService.peerEvents.data.subscribe((data) => {
       this.data.push(data);
     });
@@ -26,5 +30,6 @@ export class AppComponent {
 
   send() {
     this.peerService.send(this.message);
+    this.message = '';
   }
 }

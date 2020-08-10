@@ -35,6 +35,7 @@ export class PeerService {
 
   connect(peerId: string) {
     this.conn = this.peer.connect(peerId);
+    this.peerEvents.connection.next(this.conn.peer);
     registerConnEvents(this.conn, (data) => {
       this.peerEvents.data.next(data);
     });
